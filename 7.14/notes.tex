@@ -1,0 +1,145 @@
+\documentclass{article}
+
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}		% Can be removed after putting your text content
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[english]{babel}
+\usepackage{mycommand}     % Some custom commands that I prefer
+
+
+\title{\today}
+
+
+\date{} 					
+
+\author{
+ Du Jianxing  \\
+   \And
+Feng Jianyu  
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This is a note about \cite{baake2013aperiodic}. The conctent is in Chapter 3 Section 1.
+\end{abstract}
+
+
+
+\section{Definition of Lattices}
+First, we start with the difinition of lattices.
+\begin{definition}
+	we say that $\Gamma\subset\R^d$ is a lattice if there exists $d$ vectors $b_1,\dots,b_d$ such that
+	\[\Gamma=\Z b_1\oplus\cdots\oplus\Z b_d\]
+	and  $\langle\Gamma\rangle_\R=\R^d.$
+\end{definition}
+Let $\Gamma$ be a lattice in $\R^d$, then the group $\R^d/\Gamma$ is a compact Abelian group, namely a $d$-dimension torus. We could choose representatives of $\R^d/\Gamma$ in $\R^d$ may be like
+$$ 
+\FD_{\Gamma}:=\left\{\sum_{i=1}^{d} \alpha_{i} b_{i} | 0 \leq \alpha_{i}<1 \text { for all } i\right\}
+$$
+which is called the fundamental domain of $\Gamma$.Therefore, a lattice in$\R^d$ is a co-compact discrete subgroup of it.
+\begin{remark}
+	I don't know whether that a co-compact discrete subgroup of $\R^d$ is always a lattice, but in the proof of Proposition \ref{prop:crystallographic} one use this claim.
+	
+\end{remark}	
+	
+\begin{lemma} 
+	Any lattice is a Meyer set.
+\end{lemma}
+Since the translate of a lattice is not always a lattice, we define the generalisation of lattices.
+\begin{definition}
+	A non-empty point set $\Lambda\subset \R^d$ is called a crystallographic
+	point packing in $\R^d$ if there is a lattice $\Gamma$ in $\R^d$ and a finite point set $F$ such
+	that $\Lambda=\Gamma+F$.
+\end{definition}
+
+\section{Periodicity}
+The objects we considering here are point sets $\Lambda\in\R^d$. We say that $t\in\R^d$ is a period of $\Lambda$ when $t+\Lambda=\Lambda.$ The set
+\[\per(\Lambda):=\{t\in\R^d|t+\Lambda=\Lambda\}.\]
+is called the set of period $\Lambda$. $\per(\Lambda)$ has a group structure in $\R^d$. Its \R-span is a subspace of $\R^d$, which dimension is called the rank of $\per(\Lambda)$.
+
+
+A point set $\Lambda$ is called periodic if $\per(\Lambda)$ is non-trivial. A point set $\Lambda$ is called crystallographic if $\per(\Lambda)$  is a lattice. So, even a non-crystallographic set can still have non-trival periods. 
+For example, we can choose a point set in $\R^2$ whose set of periodic only lies in one dimension. The term aperiodic which we will introduce later is a stronger property than non-periodic. 
+
+The next proposition explains the relation between crystallographic point sets and  crystallographic point packings.
+
+\begin{proposition}\label{prop:crystallographic}
+	A locally finite point set $\Lambda\subset \R^d$ is crystallographic if and only if there is a lattice $\Gamma$ in $\R^d$ and a finite point set $F\subset \R^d$ such that $\Lambda=\Gamma\oplus F$.
+\end{proposition}
+\begin{proof}
+	Let $\Gamma\subset\R^d$ be a lattice and $F\subset\R^d$ be a finite set. Let $\Lambda=\Gamma+F$. Considering the decompose of $\Lambda$, we get that $\Lambda$ is locally finite. Thus $\per(\Lambda)$ is a discrete subgroup of $\R^d$. Since $\Lambda$ is a lattice, $\Lambda-\Lambda=\Lambda$, so $\Gamma\subset\per(\Lambda)$. Therefore $\per(\Lambda)/\Gamma$ is finite, and consequently $\R^d/\per(\Lambda)$ is compact. So that $\per(\Lambda)$ is a lattice, whence $\Lambda$ is crystallographic. 
+	
+	Conversely, let $\Lambda$ be a crystallographic with $\Gamma:=\per(\Lambda)$ as a lattice. Let $C$ be a  fundamental domain of $\Gamma$. Then, one has $\R^d=\sqcup_{t\in\Gamma}(t+C))$, and $F:=C\cap\Lambda$ is a finite set that satisfies $\Lambda=F\oplus \Gamma$.
+	
+\end{proof}
+
+This proposition shows that the locally finite, crystallographic point sets are precisely the crystallographic point packings.
+
+\section{More Lattices}
+A subset $\Gamma'$ of a lattice $\Gamma$ that is itself a lattice is called a sublattice of $\Gamma$. The gruop index $[\Gamma:\Gamma']$ is referred to as the index of $\Gamma'$ in $\Gamma.$
+\begin{lemma}
+	 If  $\Gamma'$ is a sublattice of the lattice $\Gamma\subset\R^d$ of index $n$, the lattice $n\Gamma$ is a sublattice of $\Gamma'$.
+\end{lemma} 
+
+The index is related to the volumes of the fundamental domains via
+\[[\Gamma:\Gamma']=\frac{\vol(\FD_{\Gamma'})}{\vol(\FD_{\Gamma})}.\]
+If $\Gamma$ is a lattice in $\R^d$, an important related lattice is the so-called dual lattice $\Gamma*$, which is defined as
+\[
+\Gamma^{*}=\left\{y \in \mathbb{R}^{d}|\langle x | y\rangle \in \mathbb{Z} \text { for all } x \in \Gamma\}\right..
+\]
+Clearly, the unique basis of $\Gamma^*$ is vectors $\{b_1^*,\dots,b_d^*\}$ satisfying $\langle b_i^*|b_j\rangle=\delta_{i,j}$,which is called the dual basis and implies that $\Gamma^*$ is indeed a lattice.
+
+In general, if $B$ is the basis matrix of a lattice $\Gamma$ that contains the basis vectors columnwise, the dual basis matrix is given by $(B^{-1})^T$.
+
+A useful quantity is the corresponding Gram matrix
+\[G:=B^TB,\]
+which satisfies $G_{ij}=\langle b_i|b_j\rangle.$ One has
+$$ 
+\operatorname{det}(G)=(\operatorname{det}(B))^{2}=\left(\operatorname{vol}\left(\mathrm{FD}_{\Gamma}\right)\right)^{2}>0,
+$$ which is the discriminant of $\Gamma$.
+
+\section{Through Measure Eyes}
+Given a locally finite point set $\Lambda\subset\R^d$, we can define a measure
+\[\delta_{\Lambda}=\sum_{x\in\Lambda}\delta_x,\]
+where $\delta_x$ is the normalised point measure at x.  Let $\mathcal{M}(\R^d)$ be the set of all measures on $\R^d$. Notice that
+\[\delta_t*\delta_{\Lambda}=\delta_{t+\Lambda},\]
+where $*$ denotes the convolution of measures.
+We can reconstruct the contents above through measure eyes.
+
+If $\mu\in\mathcal{M}(\R^d)$, the set
+$$ 
+\operatorname{per}(\mu) :=\left\{t \in \mathbb{R}^{d} | \delta_{t} * \mu=\mu\right\}
+$$
+is called the set of periods of $\mu$. It is a subgroup of $\R^d$.  
+
+\begin{definition}\label{def:measure-periodic}
+	A measure $\mu\in \mathcal{M}(\R^d)$ is called periodic when $\per(\mu)$ is not trivial. Moreover, the measure $\mu$ is called crystallographic when $\per(\mu)$ contains a lattice in $\R^d$.
+\end{definition}
+\begin{remark}
+	Why does the definition of crystallographic in Definition \ref{def:measure-periodic} require $\per(\mu)$ "contains" a lattice but not "be" a lattice? 
+\end{remark}
+It is beacause that there is  no obvious ananlogue of Proposition \ref{prop:crystallographic}. If $\Gamma\subset\R^d$ is a lattice and $\varrho$ a finite measure, the convolution $\mu=\varrho*\delta_{\Gamma}$ is well-defined and a crystallographic ($\per(\mu)\subset\Gamma$). However, $\per(\mu)$ need not be a lattice, but can be a much larger group. An example is
+\[\mu=\varrho * \delta_{\mathbb{Z}^{2}} \quad \text { with } \quad \varrho=1_{[0,1) \times\left[0, \frac{1}{2}\right)} \lambda,\]
+where $\lambda$ is Lebesgue measure and $1_{\{\cdot\}}$ denotes the characteristic function. $\per(\mu)=\R\times\Z$. The geometric meaning of $\mu(A)$ is the size of area belongs to both $A$ and $\cup_{\Z}(\R\times[n,n+1/2] )$. It is reasonable to distinguish measures according to their groups of periods.
+
+
+
+
+\bibliographystyle{unsrt}  
+\bibliography{references}  
+
+
+\end{document}
